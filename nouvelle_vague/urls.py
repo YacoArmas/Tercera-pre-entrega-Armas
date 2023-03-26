@@ -1,8 +1,10 @@
 from django.urls import path
-from nouvelle_vague.views import home, index
+from nouvelle_vague.views import *
 
 
 urlpatterns = [
-    path("home/", home),
-    path("index/", index),
+    path("", index),
+    path("movies/", movies),
+    path("profile/", profile),
+    path("about/", about),
 ]
