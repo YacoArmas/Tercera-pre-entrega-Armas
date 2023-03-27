@@ -3,17 +3,24 @@ from django.db import models
 
 # Create your models here.
 class Movies(models.Model):
-    movie_id = models.IntegerField(primary_key=True)
     name = models.CharField(max_length=99)
+    year = models.IntegerField(default=0)
+
+    def __str__(self):
+        return f"{self.name} ({self.year})"
 
 
 class Users(models.Model):
-    user_id = models.IntegerField(primary_key=True)
     username = models.CharField(max_length=16)
     email = models.EmailField()
 
+    def __str__(self):
+        return f"{self.username}"
+
 
 class Rental(models.Model):
-    rental_id = models.IntegerField(primary_key=True)
-    status = models.CharField(max_length=10)
-    overdue_flag = models.BooleanField()
+    movie = models.CharField(max_length=99)
+    days = models.IntegerField(default=0)
+
+    def __str__(self):
+        return f"{self.movie} - {self.days}"
